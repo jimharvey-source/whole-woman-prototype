@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Whole Woman — Harley Street</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--ink: #1c1917;
+--ink-mid: #44403c;
+--ink-light: #78716c;
+--ink-faint: #d6d3d1;
+--cream: #faf8f5;
+--warm: #f5f0e8;
+--warm-deep: #ede8df;
+--gold: #b5966a;
+--gold-light: #d4b896;
+--serif: 'Cormorant Garamond', Georgia, serif;
+--sans: 'Jost', sans-serif;
+}
+html, body {
+width: 100%;
+min-height: 100vh;
+background: var(--cream);
+color: var(--ink);
+font-family: var(--sans);
+-webkit-font-smoothing: antialiased;
+line-height: 1.5;
+}
+
+/* Prototype banner */
+.prototype-banner {
+background: #1c1917;
+color: #d4b896;
+padding: 10px 24px;
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+text-align: center;
+position: sticky;
+top: 0;
+z-index: 100;
+border-bottom: 1px solid rgba(212, 184, 150, 0.3);
+}
+.prototype-banner strong {
+color: var(--cream);
+font-weight: 500;
+}
+
+.page {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 48px;
+}
+
+/* Nav */
+.nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 32px 0 24px;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.nav-mark {
+font-family: var(--serif);
+font-size: 20px;
+font-weight: 400;
+color: var(--ink);
+letter-spacing: 0.01em;
+}
+.nav-mark em {
+font-style: italic;
+color: var(--ink-mid);
+}
+.nav-links {
+display: flex;
+gap: 36px;
+list-style: none;
+}
+.nav-links a {
+font-family: var(--sans);
+font-size: 12px;
+font-weight: 400;
+color: var(--ink-mid);
+text-decoration: none;
+letter-spacing: 0.04em;
+transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* Hero */
+.hero {
+padding: 96px 0 80px;
+display: grid;
+grid-template-columns: 1.3fr 1fr;
+gap: 80px;
+align-items: end;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.hero-eyebrow {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 20px;
+}
+.hero-title {
+font-family: var(--serif);
+font-size: 76px;
+font-weight: 300;
+line-height: 0.95;
+color: var(--ink);
+letter-spacing: -0.015em;
+margin-bottom: 32px;
+}
+.hero-title em {
+font-style: italic;
+color: var(--ink-mid);
+}
+.hero-kicker {
+font-family: var(--serif);
+font-size: 24px;
+font-weight: 300;
+font-style: italic;
+color: var(--ink-mid);
+line-height: 1.5;
+max-width: 560px;
+padding-left: 24px;
+border-left: 1px solid var(--gold-light);
+}
+.hero-meta {
+text-align: right;
+padding-bottom: 12px;
+}
+.hero-meta-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 16px;
+}
+.hero-meta-body {
+font-family: var(--serif);
+font-size: 18px;
+font-weight: 400;
+color: var(--ink-mid);
+font-style: italic;
+line-height: 1.7;
+}
+
+/* Intro */
+.intro {
+padding: 80px 0;
+display: grid;
+grid-template-columns: 240px 1fr;
+gap: 80px;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.intro-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+padding-top: 8px;
+}
+.intro-body {
+font-family: var(--serif);
+font-size: 22px;
+font-weight: 300;
+color: var(--ink);
+line-height: 1.55;
+max-width: 680px;
+}
+.intro-body p + p {
+margin-top: 20px;
+}
+.intro-body em {
+font-style: italic;
+color: var(--ink-mid);
+}
+
+/* Approach */
+.approach {
+padding: 80px 0;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.section-header {
+display: grid;
+grid-template-columns: 240px 1fr;
+gap: 80px;
+margin-bottom: 56px;
+}
+.section-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+padding-top: 8px;
+}
+.section-title {
+font-family: var(--serif);
+font-size: 40px;
+font-weight: 300;
+color: var(--ink);
+line-height: 1.15;
+letter-spacing: -0.01em;
+max-width: 680px;
+}
+.section-title em {
+font-style: italic;
+color: var(--ink-mid);
+}
+.approach-body {
+margin-left: 320px;
+max-width: 680px;
+}
+.approach-body p {
+font-family: var(--serif);
+font-size: 19px;
+font-weight: 300;
+color: var(--ink-mid);
+line-height: 1.7;
+}
+.approach-body p + p {
+margin-top: 20px;
+}
+.approach-body strong {
+font-weight: 400;
+color: var(--ink);
+font-style: normal;
+}
+
+/* Principals */
+.principals {
+padding: 96px 0 80px;
+background: var(--warm);
+margin: 0 -48px;
+padding-left: 48px;
+padding-right: 48px;
+}
+.principals-inner {
+max-width: 1004px;
+margin: 0 auto;
+}
+.principals-grid {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 2px;
+background: var(--ink-faint);
+border: 0.5px solid var(--ink-faint);
+margin-top: 56px;
+}
+.principal {
+background: var(--warm);
+padding: 40px 36px 44px;
+display: flex;
+flex-direction: column;
+}
+.principal-photo {
+width: 120px;
+height: 150px;
+background: var(--warm-deep);
+border: 0.5px solid var(--ink-faint);
+margin-bottom: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+.principal-photo img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center top;
+display: block;
+filter: grayscale(15%);
+}
+.principal-photo-placeholder {
+font-family: var(--sans);
+font-size: 9px;
+font-weight: 400;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--ink-light);
+text-align: center;
+padding: 0 16px;
+line-height: 1.5;
+}
+.principal-role {
+font-family: var(--sans);
+font-size: 9px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 10px;
+}
+.principal-name {
+font-family: var(--serif);
+font-size: 26px;
+font-weight: 400;
+color: var(--ink);
+line-height: 1.15;
+margin-bottom: 8px;
+letter-spacing: -0.005em;
+}
+.principal-creds {
+font-family: var(--serif);
+font-size: 14px;
+font-weight: 400;
+font-style: italic;
+color: var(--ink-mid);
+margin-bottom: 20px;
+line-height: 1.5;
+}
+.principal-body {
+font-family: var(--sans);
+font-size: 13px;
+font-weight: 300;
+color: var(--ink-mid);
+line-height: 1.7;
+margin-bottom: 28px;
+flex-grow: 1;
+}
+.principal-placeholder {
+background: rgba(181, 150, 106, 0.08);
+border-left: 2px solid var(--gold-light);
+padding: 10px 12px;
+font-family: var(--sans);
+font-size: 11px;
+color: var(--ink-mid);
+font-style: italic;
+line-height: 1.5;
+margin-bottom: 20px;
+}
+.principal-link {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--ink);
+text-decoration: none;
+border-bottom: 0.5px solid var(--ink);
+padding-bottom: 2px;
+align-self: flex-start;
+transition: color 0.2s, border-color 0.2s;
+}
+.principal-link:hover {
+color: var(--gold);
+border-color: var(--gold);
+}
+
+/* Blueprint wrap */
+.blueprint-section {
+padding: 96px 0;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.blueprint-feature {
+background: var(--ink);
+color: var(--cream);
+padding: 72px 72px 64px;
+margin-top: 56px;
+position: relative;
+}
+.blueprint-feature-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--gold-light);
+margin-bottom: 24px;
+}
+.blueprint-feature-title {
+font-family: var(--serif);
+font-size: 44px;
+font-weight: 300;
+line-height: 1.1;
+margin-bottom: 32px;
+color: var(--cream);
+letter-spacing: -0.01em;
+}
+.blueprint-feature-title em {
+font-style: italic;
+color: #d4b896;
+}
+.blueprint-feature-body {
+font-family: var(--serif);
+font-size: 20px;
+font-weight: 300;
+color: #d6d3d1;
+line-height: 1.65;
+max-width: 720px;
+margin-bottom: 36px;
+}
+.blueprint-feature-body p + p {
+margin-top: 16px;
+}
+.blueprint-feature-link {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: #d4b896;
+text-decoration: none;
+border-bottom: 0.5px solid #d4b896;
+padding-bottom: 3px;
+transition: color 0.2s, border-color 0.2s;
+}
+.blueprint-feature-link:hover {
+color: var(--cream);
+border-color: var(--cream);
+}
+
+/* Services */
+.services {
+padding: 96px 0;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.services-list {
+margin-top: 48px;
+max-width: 720px;
+margin-left: 320px;
+}
+.service-row {
+display: grid;
+grid-template-columns: 40px 1fr auto;
+gap: 24px;
+align-items: baseline;
+padding: 22px 0;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.service-row:first-child {
+border-top: 0.5px solid var(--ink-faint);
+}
+.service-num {
+font-family: var(--serif);
+font-size: 14px;
+font-style: italic;
+color: var(--gold);
+font-weight: 400;
+}
+.service-name {
+font-family: var(--serif);
+font-size: 22px;
+font-weight: 400;
+color: var(--ink);
+letter-spacing: -0.005em;
+}
+.service-practitioner {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 400;
+color: var(--ink-light);
+letter-spacing: 0.04em;
+font-style: italic;
+}
+
+/* Visit */
+.visit {
+padding: 96px 0;
+background: var(--warm);
+margin: 0 -48px;
+padding-left: 48px;
+padding-right: 48px;
+}
+.visit-inner {
+max-width: 1004px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+.visit-title {
+font-family: var(--serif);
+font-size: 44px;
+font-weight: 300;
+line-height: 1.1;
+color: var(--ink);
+margin-bottom: 20px;
+letter-spacing: -0.01em;
+}
+.visit-title em { font-style: italic; color: var(--ink-mid); }
+.visit-body {
+font-family: var(--serif);
+font-size: 19px;
+font-weight: 300;
+color: var(--ink-mid);
+line-height: 1.65;
+}
+.visit-details {
+background: var(--cream);
+padding: 40px 36px;
+border: 0.5px solid var(--ink-faint);
+}
+.visit-details-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 20px;
+}
+.visit-row {
+padding: 14px 0;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.visit-row:first-of-type { border-top: 0.5px solid var(--ink-faint); }
+.visit-row-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--ink-light);
+margin-bottom: 4px;
+}
+.visit-row-value {
+font-family: var(--serif);
+font-size: 16px;
+font-weight: 400;
+color: var(--ink);
+}
+.visit-row-value em { font-style: italic; color: var(--ink-mid); }
+
+/* Footer */
+.footer {
+padding: 56px 0 40px;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+border-top: 0.5px solid var(--ink-faint);
+flex-wrap: wrap;
+gap: 40px;
+}
+.footer-mark {
+font-family: var(--serif);
+font-size: 18px;
+color: var(--ink);
+margin-bottom: 8px;
+}
+.footer-mark em { font-style: italic; color: var(--ink-mid); }
+.footer-sub {
+font-family: var(--serif);
+font-size: 13px;
+font-style: italic;
+color: var(--ink-light);
+}
+.footer-col {
+font-family: var(--sans);
+font-size: 11px;
+font-weight: 300;
+color: var(--ink-light);
+line-height: 1.8;
+}
+.footer-col strong {
+display: block;
+font-family: var(--sans);
+font-size: 9px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--ink-mid);
+margin-bottom: 10px;
+}
+.footer-col a { color: var(--ink-light); text-decoration: none; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+padding: 20px 0 40px;
+display: flex;
+justify-content: space-between;
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.08em;
+color: var(--ink-light);
+border-top: 0.5px solid var(--ink-faint);
+}
+
+@media (max-width: 900px) {
+.page { padding: 0 24px; }
+.nav-links { gap: 20px; }
+.nav-links a { font-size: 11px; }
+.hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 0 48px; }
+.hero-title { font-size: 52px; }
+.hero-kicker { font-size: 20px; }
+.hero-meta { text-align: left; }
+.intro, .section-header, .visit-inner { grid-template-columns: 1fr; gap: 24px; padding: 56px 0; }
+.approach-body, .services-list { margin-left: 0; }
+.section-title { font-size: 32px; }
+.principals { margin: 0 -24px; padding-left: 24px; padding-right: 24px; padding-top: 56px; padding-bottom: 56px; }
+.principals-grid { grid-template-columns: 1fr; }
+.visit { margin: 0 -24px; padding-left: 24px; padding-right: 24px; padding-top: 56px; padding-bottom: 56px; }
+.blueprint-feature { padding: 44px 32px; }
+.blueprint-feature-title { font-size: 32px; }
+.service-row { grid-template-columns: 32px 1fr; }
+.service-practitioner { grid-column: 2; font-size: 10px; }
+.footer { flex-direction: column; padding: 40px 0 24px; }
+.footer-bottom { flex-direction: column; gap: 8px; padding: 16px 0 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="prototype-banner">
+<strong>Prototype</strong> &nbsp;·&nbsp; For discussion between the three principals &nbsp;·&nbsp; Not for public use
+</div>
+
+<div class="page">
+
+<nav class="nav">
+<div class="nav-mark">The <em>Whole</em> Woman</div>
+<ul class="nav-links">
+<li><a href="#approach">Approach</a></li>
+<li><a href="#principals">Principals</a></li>
+<li><a href="#blueprint">The Blueprint</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#visit">Visit</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div>
+<p class="hero-eyebrow">A women's health practice — Harley Street</p>
+<h1 class="hero-title">The <em>Whole</em><br>Woman</h1>
+<p class="hero-kicker">Three specialists. One method. The care a woman needs across her whole adult life — seen in one place, held in one record.</p>
+</div>
+<div class="hero-meta">
+<p class="hero-meta-label">Founded 2026</p>
+<p class="hero-meta-body">Dr A<br>Dr B<br>Lora Macfarlane</p>
+</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+<p class="intro-label">Why this practice</p>
+<div class="intro-body">
+<p>Women are still seen in parts. The GP treats the presenting symptom. The gynaecologist sees one system. The nutritionist sees what you eat. Each does their job. None of them sees the whole woman.</p>
+<p><em>The Whole Woman</em> is built on the opposite practice. Three senior specialists working under one roof, sharing one method and one written record per client. What one of us sees, all three see. A woman does not have to tell her story twice.</p>
+</div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+<div class="section-header">
+<p class="section-label">The approach</p>
+<h2 class="section-title">Her whole life<br>— <em>seen in one place</em></h2>
+</div>
+<div class="approach-body">
+<p>A woman's adult life has arcs the system is not built to follow. Fertility concerns at thirty-two become pregnancy care at thirty-four. Postnatal hormones become cycle questions become perimenopausal symptoms. Stress load from one decade becomes the thyroid question of the next. Each stage is treated by a different clinician — often a different clinic — and the thread between them is lost.</p>
+<p>Our approach is continuous, not episodic. <strong>Every client begins with a Blueprint</strong> — a full written picture of her health, built in conversation with Lora. From that document, the care that follows is drawn from whichever practitioner is right for the moment. Menopausal hormone therapy from Dr A. Gynaecological investigation from Dr B. Acupuncture and functional medicine from Lora. One client. One record. Three specialists. No seams.</p>
+</div>
+</section>
+
+<!-- PRINCIPALS -->
+<section class="principals" id="principals">
+<div class="principals-inner">
+<div class="section-header">
+<p class="section-label">The principals</p>
+<h2 class="section-title">Three specialists,<br><em>one practice</em></h2>
+</div>
+
+<div class="principals-grid">
+
+<div class="principal">
+<div class="principal-photo">
+<span class="principal-photo-placeholder">Photograph<br>to come</span>
+</div>
+<p class="principal-role">Menopause &amp; HRT</p>
+<h3 class="principal-name">Dr A</h3>
+<p class="principal-creds">MD &mdash; menopause specialist with prescribing rights</p>
+<p class="principal-body">[Biography to come &mdash; Dr A's clinical background, training route, and the particular view of menopause medicine that sits alongside functional and complementary practice.]</p>
+<div class="principal-placeholder">Placeholder content. To be written with Dr A once the collective is formally constituted.</div>
+<a href="#" class="principal-link">Read more →</a>
+</div>
+
+<div class="principal">
+<div class="principal-photo">
+<span class="principal-photo-placeholder">Photograph<br>to come</span>
+</div>
+<p class="principal-role">Gynaecology</p>
+<h3 class="principal-name">Dr B</h3>
+<p class="principal-creds">Consultant gynaecologist</p>
+<p class="principal-body">[Biography to come &mdash; Dr B's clinical background, surgical and investigative specialisms, and the conditions she sees most.]</p>
+<div class="principal-placeholder">Placeholder content. To be written with Dr B once the third principal is identified and confirmed.</div>
+<a href="#" class="principal-link">Read more →</a>
+</div>
+
+<div class="principal">
+<div class="principal-photo">
+<img src="https://images.squarespace-cdn.com/content/v1/654775c78ee5c958fd888c2b/3fc1b456-f247-4683-888d-869af4862101/photo_0041.jpg" alt="Lora Macfarlane" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<span class="principal-photo-placeholder" style="display:none">Lora<br>Macfarlane</span>
+</div>
+<p class="principal-role">Acupuncture &amp; functional medicine</p>
+<h3 class="principal-name">Lora Macfarlane</h3>
+<p class="principal-creds">BSc (Hons) TCM Acupuncture, MBAcC</p>
+<p class="principal-body">Twenty years in clinical practice. A first degree in fine art before medicine. Lora developed the Blueprint method &mdash; the shared intake that anchors the collective &mdash; and leads its use across the practice.</p>
+<a href="#" class="principal-link">Read more →</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- BLUEPRINT -->
+<section class="blueprint-section" id="blueprint">
+<div class="section-header">
+<p class="section-label">The shared method</p>
+<h2 class="section-title">Every client<br>begins with a <em>Blueprint</em></h2>
+</div>
+<div class="blueprint-feature">
+<p class="blueprint-feature-label">Your Health Masterpiece</p>
+<h3 class="blueprint-feature-title">The written picture<br>of <em>your whole health</em></h3>
+<div class="blueprint-feature-body">
+<p>The Blueprint is a wide-ranging consultation and a written document. Your health chronology, cycle history, medications, previous treatments, stressors, and goals &mdash; mapped in one place, in conversation with Lora.</p>
+<p>Once the picture exists, it is shared with the rest of the collective with your consent. Dr A does not need a separate intake to begin a menopause conversation. Dr B does not start gynaecological investigation with a blank page. The thread of your care is continuous from the first consultation onward.</p>
+</div>
+<a href="https://health-masterpiece.vercel.app" class="blueprint-feature-link">See the Blueprint in full →</a>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="section-header">
+<p class="section-label">What we offer</p>
+<h2 class="section-title">Services &amp; specialisms,<br><em>from one intake</em></h2>
+</div>
+<div class="services-list">
+
+<div class="service-row">
+<span class="service-num">01</span>
+<span class="service-name">The Blueprint</span>
+<span class="service-practitioner">Lora Macfarlane</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">02</span>
+<span class="service-name">Fertility</span>
+<span class="service-practitioner">all three, by referral</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">03</span>
+<span class="service-name">Pregnancy &amp; postnatal</span>
+<span class="service-practitioner">Lora &amp; Dr B</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">04</span>
+<span class="service-name">Hormonal health</span>
+<span class="service-practitioner">Dr A &amp; Lora</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">05</span>
+<span class="service-name">Perimenopause &amp; menopause</span>
+<span class="service-practitioner">Dr A &amp; Lora</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">06</span>
+<span class="service-name">HRT prescribing &amp; review</span>
+<span class="service-practitioner">Dr A</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">07</span>
+<span class="service-name">Gynaecological investigation</span>
+<span class="service-practitioner">Dr B</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">08</span>
+<span class="service-name">Functional medicine</span>
+<span class="service-practitioner">Dr A &amp; Lora</span>
+</div>
+
+<div class="service-row">
+<span class="service-num">09</span>
+<span class="service-name">Acupuncture &amp; traditional Chinese medicine</span>
+<span class="service-practitioner">Lora</span>
+</div>
+
+</div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+<div class="visit-inner">
+<div>
+<h2 class="visit-title">Begin with a <em>Blueprint</em></h2>
+<p class="visit-body">Every new client begins with a Blueprint consultation. From there, the care is drawn from whichever practitioner is right &mdash; one at a time, together, or in sequence. There is no standing commitment. The Blueprint is yours to keep regardless of what follows.</p>
+</div>
+<div class="visit-details">
+<p class="visit-details-label">The practice</p>
+<div class="visit-row">
+<p class="visit-row-label">Location</p>
+<p class="visit-row-value">[Number] Harley Street <em>&mdash; to confirm</em></p>
+</div>
+<div class="visit-row">
+<p class="visit-row-label">Booking</p>
+<p class="visit-row-value">Every new client starts here <em>&mdash; via the Blueprint</em></p>
+</div>
+<div class="visit-row">
+<p class="visit-row-label">Practitioners</p>
+<p class="visit-row-value">Dr A, Dr B, Lora Macfarlane</p>
+</div>
+<div class="visit-row">
+<p class="visit-row-label">Opening</p>
+<p class="visit-row-value">[Month] 2026 <em>&mdash; to confirm</em></p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div>
+<p class="footer-mark">The <em>Whole</em> Woman</p>
+<p class="footer-sub">A women's health practice &mdash; Harley Street, London</p>
+</div>
+<div class="footer-col">
+<strong>The principals</strong>
+<a href="#">Dr A</a><br>
+<a href="#">Dr B</a><br>
+<a href="#">Lora Macfarlane</a>
+</div>
+<div class="footer-col">
+<strong>The practice</strong>
+<a href="#approach">Approach</a><br>
+<a href="#blueprint">The Blueprint</a><br>
+<a href="#services">Services</a><br>
+<a href="#visit">Visit</a>
+</div>
+<div class="footer-col">
+<strong>Contact</strong>
+[to confirm]<br>
+[to confirm]<br>
+<a href="https://health-masterpiece.vercel.app">Your Health Masterpiece</a>
+</div>
+</footer>
+
+<div class="footer-bottom">
+<span>&copy; 2026 The Whole Woman &mdash; prototype</span>
+<span>For discussion between the three principals</span>
+</div>
+
+</div>
+
+</body>
+</html>
