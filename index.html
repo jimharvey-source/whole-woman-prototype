@@ -242,6 +242,70 @@ color: var(--ink);
 font-style: normal;
 }
 
+/* Architecture ribbon */
+.arc-ribbon {
+padding: 64px 0 56px;
+border-bottom: 0.5px solid var(--ink-faint);
+}
+.arc-ribbon-label {
+font-family: var(--sans);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 28px;
+}
+.arc-ribbon-strip {
+display: grid;
+grid-template-columns: 1fr 16px 1fr 16px 1fr 16px 1fr;
+align-items: center;
+gap: 0;
+margin-bottom: 24px;
+background: var(--warm);
+border: 0.5px solid var(--ink-faint);
+padding: 24px 28px;
+}
+.arc-ribbon-stage {
+font-family: var(--serif);
+font-size: 19px;
+font-weight: 400;
+color: var(--ink);
+line-height: 1.2;
+letter-spacing: -0.005em;
+}
+.arc-ribbon-stage em {
+font-style: italic;
+color: var(--ink-mid);
+}
+.arc-ribbon-arrow {
+font-family: var(--serif);
+font-size: 16px;
+color: var(--gold-light);
+text-align: center;
+font-weight: 300;
+}
+.arc-ribbon-foot {
+font-family: var(--serif);
+font-size: 17px;
+font-weight: 300;
+font-style: italic;
+color: var(--ink-mid);
+line-height: 1.55;
+max-width: 720px;
+}
+.arc-ribbon-foot a {
+color: var(--gold);
+text-decoration: none;
+border-bottom: 0.5px solid var(--gold);
+padding-bottom: 1px;
+transition: color 0.2s, border-color 0.2s;
+}
+.arc-ribbon-foot a:hover {
+color: var(--ink);
+border-color: var(--ink);
+}
+
 /* Principals */
 .principals {
 padding: 96px 0 80px;
@@ -611,6 +675,10 @@ border-top: 0.5px solid var(--ink-faint);
 .blueprint-feature-title { font-size: 32px; }
 .service-row { grid-template-columns: 32px 1fr; }
 .service-practitioner { grid-column: 2; font-size: 10px; }
+.arc-ribbon-strip { grid-template-columns: 1fr; gap: 12px; padding: 20px 22px; }
+.arc-ribbon-arrow { display: none; }
+.arc-ribbon-stage { font-size: 17px; padding: 4px 0; border-bottom: 0.5px solid var(--ink-faint); }
+.arc-ribbon-stage:last-child { border-bottom: none; }
 .footer { flex-direction: column; padding: 40px 0 24px; }
 .footer-bottom { flex-direction: column; gap: 8px; padding: 16px 0 32px; }
 }
@@ -619,7 +687,7 @@ border-top: 0.5px solid var(--ink-faint);
 <body>
 
 <div class="prototype-banner">
-<strong>Prototype</strong> &nbsp;·&nbsp; For discussion between the three principals &nbsp;·&nbsp; Not for public use
+<strong>Prototype</strong> &nbsp;·&nbsp; <em>The Whole Woman</em> is a working title — to be confirmed &nbsp;·&nbsp; For discussion between the three principals
 </div>
 
 <div class="page">
@@ -652,7 +720,7 @@ border-top: 0.5px solid var(--ink-faint);
 <section class="intro">
 <p class="intro-label">Why this practice</p>
 <div class="intro-body">
-<p>Holistic care exists, but it is rare and scattered. Usually it is delivered by one practitioner trying to cover everything. <em>The Whole Woman</em> is built differently — three senior specialists under one roof, sharing one method and one written record per client. What one of us sees, all three see. A woman doesn't have to repeat her story.</p>
+<p>Most integrated practices are built around a founder, supported by a team. <em>The Whole Woman</em> is built differently. Three senior specialists, each independent in her domain, sharing one method and one written record per client. Not a principal with a supporting cast. Three peers. What one of us sees, all three see. A woman doesn't have to repeat her story.</p>
 </div>
 </section>
 
@@ -664,8 +732,23 @@ border-top: 0.5px solid var(--ink-faint);
 </div>
 <div class="approach-body">
 <p>A woman's adult life has arcs the system is not built to follow. Fertility concerns at thirty-two become pregnancy care at thirty-four. Postnatal hormones become cycle questions become perimenopausal symptoms. Stress load from one decade becomes the thyroid question of the next. Each stage is treated by a different clinician — often a different clinic — and the thread between them is lost.</p>
-<p>Our approach is continuous, not episodic. <strong>Every client begins with a Blueprint</strong> — a full written picture of her health, built in conversation with one of our practitioners. From that document, the care that follows is drawn from whichever practitioner is right for the moment. Lifestyle medicine and menopause from Dr A. Gynaecological investigation from Dr B. Acupuncture and functional medicine from Lora. One client. One record. Three specialists. No seams.</p>
+<p>Every client follows the same arc. A Blueprint to build the full picture. A Study to do the ongoing work. A View from Here at six and twelve months to see what has changed. Each stage draws on whichever of the three practitioners is right for the moment — lifestyle medicine from Dr A, gynaecology from Dr B, acupuncture and functional medicine from Lora. One method. One record. Three specialists. No seams.</p>
 </div>
+</section>
+
+<!-- ARC RIBBON -->
+<section class="arc-ribbon">
+<p class="arc-ribbon-label">The shared arc</p>
+<div class="arc-ribbon-strip">
+<div class="arc-ribbon-stage">The Blueprint</div>
+<div class="arc-ribbon-arrow">→</div>
+<div class="arc-ribbon-stage">The Study</div>
+<div class="arc-ribbon-arrow">→</div>
+<div class="arc-ribbon-stage">The View<br>from Here</div>
+<div class="arc-ribbon-arrow">→</div>
+<div class="arc-ribbon-stage"><em>Her Own Work</em></div>
+</div>
+<p class="arc-ribbon-foot">Every client follows the same four-stage method, regardless of which practitioner leads her care. <a href="https://health-masterpiece.vercel.app">The full architecture is described on the Blueprint page →</a></p>
 </section>
 
 <!-- PRINCIPALS -->
